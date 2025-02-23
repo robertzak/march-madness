@@ -49,7 +49,7 @@ public class StatService {
         for(BookStats book: nominationsByBook.values()){
             int yearCount = book.getNominationsByYear().size();
 
-            List<BookStats> books = numYears.computeIfAbsent(yearCount, k -> new ArrayList<>());
+            List<BookStats> books = numYears.computeIfAbsent(yearCount, _ -> new ArrayList<>());
 
             books.add(book);
         }
