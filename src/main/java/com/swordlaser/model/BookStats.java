@@ -1,5 +1,7 @@
 package com.swordlaser.model;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvBindByPosition;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,7 +13,11 @@ import java.util.Set;
 @Getter
 @EqualsAndHashCode
 public class BookStats {
+    @CsvBindByName(column = "Title", required = true)
+    @CsvBindByPosition(position = 0)
     private String title;
+    @CsvBindByName(column = "Author", required = true)
+    @CsvBindByPosition(position = 1)
     private String author;
     private Map<Integer, YearlyNomination> nominationsByYear;
 

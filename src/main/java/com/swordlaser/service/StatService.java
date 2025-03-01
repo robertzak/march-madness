@@ -13,7 +13,7 @@ import java.util.Map;
 @Slf4j
 public class StatService {
 
-    public void combineNominations(Map<Integer, List<YearlyNomination>> nominationsByYear){
+    public  Map<String, BookStats> combineNominations(Map<Integer, List<YearlyNomination>> nominationsByYear){
         Map<String, BookStats> nominationsByBook = new HashMap<>();
 
         for(Integer year: nominationsByYear.keySet()){
@@ -77,6 +77,8 @@ public class StatService {
             log.info("\t{} by {} total Nominations: {}, numYears={}", book.getTitle(), book.getAuthor(),
                     book.getTotalNominations(), book.getNominationsByYear().size());
         }
+
+        return  nominationsByBook;
 
     }
 }
